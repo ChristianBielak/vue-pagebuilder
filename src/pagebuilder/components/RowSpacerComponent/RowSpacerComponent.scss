@@ -1,0 +1,28 @@
+@import "../../components/PagebuilderComponent/PagebuilderComponent";
+
+.row-spacer-component {
+  position: absolute;
+  bottom: 0;
+  z-index: 100;
+  width: 100%;
+  padding-left: 1.9rem;
+  padding-right: 1.9rem;
+
+  hr {
+    border-top: dashed 2px $pb-gray;
+    width: 100%;
+    margin: 0;
+  }
+
+  .add-row-button{
+    height: 30px;
+    width: 30px;
+    background-color: $pb-icon-color;
+    color: $pb-side-nav-color;
+    font-weight: bold;
+    font-size: 25px;
+    border-radius: 50%;
+    border-color: transparent;
+    padding: 0px 7px 3px 6px;
+  }
+}

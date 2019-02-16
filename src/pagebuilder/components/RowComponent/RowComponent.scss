@@ -1,0 +1,10 @@
+.row-component {
+  position: relative;
+
+  &.gu-mirror{
+
+    .row-spacer-component{
+      display: none !important;
+    }
+  }
+}
