@@ -1,0 +1,35 @@
+{
+  "framework":{
+    "current": "bootstrap"
+  },
+
+  "bootstrap": [
+    {
+      "pb": "pb-small-",
+      "fw": "col-xs-"
+    },
+    {
+      "pb": "pb-medium-",
+      "fw": "col-sm-"
+    },
+    {
+      "pb": "pb-large-",
+      "fw": "col-md-"
+    }
+  ],
+
+  "foundation":[
+    {
+      "pb": "pb-small-",
+      "fw": "small-"
+    },
+    {
+      "pb": "pb-medium-",
+      "fw": "medium-"
+    },
+    {
+      "pb": "pb-large-",
+      "fw": "large-"
+    }
+  ]
+}

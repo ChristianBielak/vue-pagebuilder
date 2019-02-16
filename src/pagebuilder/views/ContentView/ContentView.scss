@@ -1,0 +1,15 @@
+@import '../../components/PagebuilderComponent/PagebuilderComponent';
+
+.content-view {
+  position: relative;
+  min-height: 500px;
+  border-radius: 2px;
+  background-color: white;
+  padding: 25px 0;
+  transition: all .75s ease-out;
+  max-width: 1200px;
+
+  .sortable-chosen{
+    overflow: hidden ;
+  }
+}
