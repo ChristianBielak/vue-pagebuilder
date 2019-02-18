@@ -5,7 +5,7 @@
     "type": "git",
     "url": "https://github.com/ChristianBielak/vue-pagebuilder"
   }, 
-  "keywords": ['vue.js', 'laravel', 'pagebuilder', 'vue spa'],
+  "keywords": ["vue.js", "laravel", "pagebuilder", "vue spa"],
     "author": "Christian Bielak",
     "license": "MIT",
   "bugs": {
