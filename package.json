@@ -3,8 +3,14 @@
   "version": "0.0.39",
   "repository": {
     "type": "git",
-    "url": "git@github.com:ChristianBielak/vue-pagebuilder.git"
-  },
+    "url": "https://github.com/ChristianBielak/vue-pagebuilder"
+  }, 
+  "keywords": ['vue.js', 'laravel', 'pagebuilder', 'vue spa'],
+    "author": "Christian Bielak",
+    "license": "MIT",
+  "bugs": {
+      "url": "https://github.com/ChristianBielak/vue-pagebuilder/issues"
+    },
   "scripts": {
     "postinstall": "node scripts/install.js",
     "postuninstall": "scripts/uninstall.js"
