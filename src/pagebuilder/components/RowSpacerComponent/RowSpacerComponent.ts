@@ -3,7 +3,6 @@ import {Component, Prop} from "vue-property-decorator";
 import Vue from 'vue'
 import {Getter} from "vuex-class";
 import {Row} from "../../models/Row";
-import {RowService} from "../../services/RowService";
 //@ts-ignore
 import Plus from '../../svgs/PlusIcon.vue';
 //@ts-ignore
@@ -17,6 +16,7 @@ import Grid84 from '../../svgs/Grid84Icon.vue';
 //@ts-ignore
 import Grid48 from '../../svgs/Grid48Icon.vue';
 import {Article} from "@/pagebuilder/models/Article";
+import {RowService} from "@/pagebuilder/services/RowService";
 
 
 @Component({

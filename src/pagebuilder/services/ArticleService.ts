@@ -1,7 +1,7 @@
 import {TranslationService} from "./TranslationService";
 import {Translation} from "../models/Translation";
 import {RowService} from "./RowService";
-import store from "@/store/store";
+import store from "@/pagebuilder/store/store";
 import {Article} from "@/pagebuilder/models/Article";
 
 

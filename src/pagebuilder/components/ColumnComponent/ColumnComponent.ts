@@ -17,7 +17,6 @@ import HeadlineTextElementIcon from '../../svgs/ElementIcons/HeadlineTextElement
 
 //@ts-ignore
 import pbConfig from '../../config/config.json';
-import ChooseElementComponent from "../ChooseElementComponent/ChooseElementComponent";
 
 @Component({
     components: {
@@ -25,7 +24,6 @@ import ChooseElementComponent from "../ChooseElementComponent/ChooseElementCompo
         ImageElementIcon,
         TextElementIcon,
         HeadlineTextElementIcon,
-        ChooseElementComponent,
     }
 })
 export default class ColumnComponent extends Vue {
@@ -61,7 +59,7 @@ export default class ColumnComponent extends Vue {
             this.component = element.component;
             Vue.component(
                 this.component,
-                () => import('../../elements/' + this.component + '/' + this.component )
+                () => import( /*webpackChunkName: "pagebuilder-element"*/ "../../elements/" + this.component + '/' + this.component)
             );
 
             this.toolTipActive = false;

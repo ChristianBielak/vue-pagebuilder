@@ -7,26 +7,29 @@ import {forEach} from 'lodash';
 
 import {Getter, Mutation} from 'vuex-class';
 
-//@ts-ignore
-import ImageElementIcon from '../../svgs/ElementIcons/ImageElementIcon.vue'
-//@ts-ignore
-import TextElementIcon from '../../svgs/ElementIcons/TextElementIcon.vue'
-//@ts-ignore
-import HeadlineTextElementIcon from '../../svgs/ElementIcons/HeadlineTextElementIcon.vue'
-//@ts-ignore
-import Arrow from '../../svgs/ArrowIcon.vue'
 
 //@ts-ignore
 import Sticky from 'vue-sticky-directive';
+//@ts-ignore
+import TextElementIcon from "@/pagebuilder/svgs/ElementIcons/TextElementIcon.vue";
+//@ts-ignore
+import ImageElementIcon from "@/pagebuilder/svgs/ElementIcons/ImageElementIcon.vue";
+//@ts-ignore
+import HeadlineTextElementIcon from "@/pagebuilder/svgs/ElementIcons/HeadlineTextElementIcon.vue";
+//@ts-ignore
+import Arrow from "@/pagebuilder/svgs/ArrowIcon.vue";
+import {ArticleService} from "@/pagebuilder/services/ArticleService";
+import ContentView from "@/pagebuilder/views/ContentView/ContentView";
+import {Article} from "@/pagebuilder/models/Article";
+import SettingsView from "@/pagebuilder/views/SettingsView/SettingsView";
+import VueDatePicker from "@/pagebuilder/components/VueDatePicker/VueDatePicker";
+import VueEditor from "@/pagebuilder/components/VueEditor/VueEditor";
+
 
 Vue.use(Sticky);
 
 // Import date picker css
-import {Article} from "../../models/Article";
-import {ArticleService} from "../../services/ArticleService";
 
-import ContentView from '../../views/ContentView/ContentView';
-import SettingsView from "../../views/SettingsView/SettingsView";
 
 @Component({
     components: {
@@ -35,7 +38,9 @@ import SettingsView from "../../views/SettingsView/SettingsView";
         Arrow,
         ImageElementIcon,
         TextElementIcon,
-        HeadlineTextElementIcon
+        HeadlineTextElementIcon,
+        VueEditor,
+        VueDatePicker
 
     },
 })
@@ -43,14 +48,53 @@ export default class PagebuilderComponent extends Vue {
 
     @Prop()
     oldElement: any;
-    @Prop()
+    @Prop({
+            default: function () {
+                return [
+                    {
+                        id: 1,
+                        name: "Headline + Text",
+                        component: "v-headline-text",
+                        icon: "headline-text-element-icon",
+                        sorting: 1,
+                    },
+                    {
+                        id: 2,
+                        name: "Text",
+                        component: "v-text",
+                        icon: "text-element-icon",
+                        sorting: 2,
+                    },
+                    {
+                        id: 3,
+                        name: "Photo + Description",
+                        component: "v-photo-description",
+                        icon: "image-element-icon",
+                        sorting: 3,
+                    }
+                ]
+            }
+        }
+    )
     elementTypes: Array<any>;
-    @Prop()
+    @Prop({
+            default: function () {
+                return [
+                    {
+                        id: 1, name: 'english', locale: 'en'
+                    },
+                    {
+                        id: 2, name: 'german', locale: 'de'
+                    }
+                ]
+            }
+        }
+    )
     languages: Array<any>;
     @Prop()
     storagePath: string;
     @Prop({default: 'dark-theme'})
-    defaultTheme: string
+    defaultTheme: string;
 
     @Mutation('setElementTypes') setElementTypes: any;
     @Mutation('setLanguages') setLanguages: any;
@@ -88,16 +132,16 @@ export default class PagebuilderComponent extends Vue {
 
     }
 
-    setTheme(){
+    setTheme() {
         this.elements.body.classList.add(this.theme);
     }
 
-    changeTheme(){
-        if(this.theme === 'dark-theme'){
+    changeTheme() {
+        if (this.theme === 'dark-theme') {
             this.elements.body.classList.remove('dark-theme');
             this.elements.body.classList.add('light-theme');
             this.theme = 'light-theme';
-        }else{
+        } else {
             this.elements.body.classList.remove('light-theme');
             this.elements.body.classList.add('dark-theme');
             this.theme = 'dark-theme';
@@ -128,7 +172,7 @@ export default class PagebuilderComponent extends Vue {
         })
     }
 
-    get currentLanguage(){
+    get currentLanguage() {
         return this.getCurrentLanguage;
     }
 
@@ -136,5 +180,4 @@ export default class PagebuilderComponent extends Vue {
     onArticleChanged(val: Article, oldVal: Article) {
         this.setArticle(this.article);
     }
-
 };

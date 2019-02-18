@@ -1,7 +1,7 @@
 import axios from "axios";
-import {Row} from "@/pagebuilder/models/Row";
-import {ArticleService} from "@/pagebuilder/services/ArticleService";
-import {Article} from "@/pagebuilder/models/Article";
+import {Row} from "../models/Row";
+import {ArticleService} from "../services/ArticleService";
+import {Article} from "../models/Article";
 
 const routePrefix: string = '/pagebuilder/';
 

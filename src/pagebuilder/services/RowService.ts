@@ -2,7 +2,7 @@ import {Row} from "../models/Row";
 import {ColumnService} from "./ColumnService";
 
 import {findIndex} from 'lodash';
-import store from "@/store/store";
+import store from "@/pagebuilder/store/store";
 
 
 export abstract class RowService {

@@ -1,4 +1,4 @@
-import {Article} from "@/pagebuilder/models/Article";
+import {Article} from "../models/Article";
 
 export default {
 
