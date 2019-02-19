@@ -2,7 +2,7 @@
 
 #### Notes
 
-The Pagebuilder is still in developing.
+This package is still in development and is NOT yet intended for production use.
 <br>
 The README for customization will be coming soon.
 
@@ -18,7 +18,8 @@ yarn add @chrisbielak/vue-pagebuilder
 
 
 ##### Set up TypeScript
-If you want to use the Pagebuilder you need to use TypeScript. TypeScript will be automatically installed with all required dependencies.
+The Pagebuilder was written in TypeScript, which will be installed automatically
+with all required dependencies.
 
 You can skip this step if you want to use the Pagebuilder within a TypeScript ready Vue.js SPA.
 
@@ -80,9 +81,9 @@ mix.webpackConfig({
 ~~~
 
 
-The last step that needs to be done is to create a `tsconfig.json`.
+The last step that needs to be done is to create the `tsconfig.json` file.
 
-I use the normal `tsconfig.json` which is created by the Vue cli.
+I use the default `tsconfig.json` which is created by the Vue cli.
 
 ~~~
 {
