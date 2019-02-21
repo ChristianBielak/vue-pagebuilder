@@ -27,7 +27,7 @@ export default {
     /* Pagebuilder stuff */
 
     createElement: (store: any) => {
-        let article = store.getters.getArticle;
+        let article = store.getters.article;
 
         axios.post(routePrefix + 'articles', article, headers).then(response => {
         })
@@ -35,7 +35,7 @@ export default {
     },
 
     updateElement: (store: any) => {
-        let article = store.getters.getArticle;
+        let article = store.getters.article;
 
         axios.put(routePrefix + 'articles/' + article.id, article, headers).then(response => {
             //window.location.href = response.data.return_url;
