@@ -1,9 +1,8 @@
 import axios from "axios";
 import {Row} from "../models/Row";
-import {ArticleService} from "../services/ArticleService";
 import {Article} from "../models/Article";
 
-const routePrefix: string = '/pagebuilder/';
+const routePrefix: string = 'https://pagebuilder.ultrabold.de/admin/pagebuilder/';
 
 
 const token: any = document.querySelector('meta[name="csrf-token"]');

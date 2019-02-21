@@ -41,6 +41,14 @@ export default class SettingsView extends Vue {
         return this.$store.getters.article;
     }
 
+    get languages(){
+        return this.$store.getters.languages;
+    }
+
+    get currentLang(){
+        return this.$store.getters.currentLang;
+    }
+
     mounted() {
         if (this.article && this.article.photo && this.article.photo.length !== 0) {
             let file = {size: 123, name: this.article.photo, type: '/image.*/'};
