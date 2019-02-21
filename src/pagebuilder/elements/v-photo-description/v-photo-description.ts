@@ -3,7 +3,6 @@ import Vue from "vue";
 //@ts-ignore
 
 import {Component, Prop, Watch, Emit} from "vue-property-decorator";
-import {Getter, Mutation} from "vuex-class";
 
 //@ts-ignore
 import vue2Dropzone from 'vue2-dropzone'
@@ -24,9 +23,6 @@ export default class VPhotoDescription extends Vue {
     @Prop()
     oldTranslations: Array<Translation>;
 
-    @Getter('getLanguages') getLanguages: any;
-    @Getter('getCurrentLang') getCurrentLang: any;
-
     translations: Array<Translation> = [];
     dropzoneOptions: object = {
         url: '/pagebuilder/upload-photo',
@@ -46,7 +42,7 @@ export default class VPhotoDescription extends Vue {
 
     quillOptions: object = {
         theme: 'bubble',
-        placeholder: 'Text (' + this.$store.getters.getCurrentLang.locale + ')',
+        placeholder: 'Text (' + this.currentLang.locale + ')',
         modules: {
             toolbar: [
                 ["bold", "italic", "underline"],
@@ -88,11 +84,11 @@ export default class VPhotoDescription extends Vue {
     }
 
     get languages() {
-        return this.getLanguages;
+        return this.$store.getters.languages;
     }
 
     get currentLang() {
-        return this.getCurrentLang;
+        return this.$store.getters.currentLang;
     }
 
 };

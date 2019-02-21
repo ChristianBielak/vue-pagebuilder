@@ -1,7 +1,6 @@
 import {Component, Prop} from "vue-property-decorator";
 
 import Vue from 'vue'
-import {Getter} from "vuex-class";
 import {Row} from "../../models/Row";
 //@ts-ignore
 import Plus from '../../svgs/PlusIcon.vue';
@@ -17,6 +16,13 @@ import Grid84 from '../../svgs/Grid84Icon.vue';
 import Grid48 from '../../svgs/Grid48Icon.vue';
 import {Article} from "@/pagebuilder/models/Article";
 import {RowService} from "@/pagebuilder/services/RowService";
+//@ts-ignore
+import Unicon from 'vue-unicons';
+//@ts-ignore
+import {uniTrash} from 'vue-unicons/src/icons'
+
+Unicon.add(uniTrash);
+Vue.use(Unicon);
 
 
 @Component({
@@ -33,7 +39,6 @@ export default class RowSpacerComponent extends Vue {
 
     @Prop()
     row: Row;
-    @Getter('getArticle') getArticle: Article;
 
     isSelectGridOpen: boolean = false;
     isSettingsOpen: boolean = false;
@@ -49,7 +54,7 @@ export default class RowSpacerComponent extends Vue {
     }
 
     get article():Article{
-        return this.getArticle;
-    }
+        return this.$store.getters.article;
 
+    }
 }

@@ -5,9 +5,6 @@ import {Component, Prop, Watch} from "vue-property-decorator";
 
 import {forEach} from 'lodash';
 
-import {Getter, Mutation} from 'vuex-class';
-
-
 //@ts-ignore
 import Sticky from 'vue-sticky-directive';
 //@ts-ignore
@@ -96,15 +93,6 @@ export default class PagebuilderComponent extends Vue {
     @Prop({default: 'dark-theme'})
     defaultTheme: string;
 
-    @Mutation('setElementTypes') setElementTypes: any;
-    @Mutation('setLanguages') setLanguages: any;
-    @Mutation('setArticle') setArticle: any;
-    @Mutation('setCurrentLang') setCurrentLang: any;
-
-    @Getter('getLanguages') getLanguages: any;
-    @Getter('getCurrentLang') getCurrentLanguage: any;
-    @Getter('getArticle') getArticle: Article;
-
     article: Article = new Article();
     currentView: string = 'Content';
     theme: string = this.defaultTheme;
@@ -115,25 +103,35 @@ export default class PagebuilderComponent extends Vue {
         columns: document.getElementsByClassName('pagebuilder-column')
     };
 
-    mounted() {
+    beforeMount() {
+
+        if (localStorage.pagebuilderTheme) {
+            this.theme = localStorage.pagebuilderTheme;
+        }
 
         this.setTheme();
-        this.setLanguages(this.languages);
-        this.setCurrentLang(this.getLanguages[0]);
-        this.setElementTypes(this.elementTypes);
+
+        this.$store.commit('setLanguages', this.languages);
+        this.$store.commit('setCurrentLang', this.languages[0]);
+        this.$store.commit('setElementTypes', this.elementTypes);
 
         if (this.oldElement) {
             this.article = ArticleService.createFromExisting(this.oldElement);
             // @ts-ignore
             this.$store.commit('setArticle', this.article);
-        } else {
-            this.article = ArticleService.createNew();
-        }
 
+            return this.$store.getters.article;
+        } else {
+            return this.article = ArticleService.createNew();
+        }
     }
 
     setTheme() {
         this.elements.body.classList.add(this.theme);
+    }
+
+    setCurrentLang(lang:any){
+        this.$store.commit('setCurrentLang', lang);
     }
 
     changeTheme() {
@@ -141,10 +139,12 @@ export default class PagebuilderComponent extends Vue {
             this.elements.body.classList.remove('dark-theme');
             this.elements.body.classList.add('light-theme');
             this.theme = 'light-theme';
+            localStorage.pagebuilderTheme = 'light-theme';
         } else {
             this.elements.body.classList.remove('light-theme');
             this.elements.body.classList.add('dark-theme');
             this.theme = 'dark-theme';
+            localStorage.pagebuilderTheme = 'dark-theme';
         }
     }
 
@@ -173,11 +173,12 @@ export default class PagebuilderComponent extends Vue {
     }
 
     get currentLanguage() {
-        return this.getCurrentLanguage;
+        return this.$store.getters.currentLang;
     }
+
 
     @Watch('article', {immediate: true, deep: true})
     onArticleChanged(val: Article, oldVal: Article) {
-        this.setArticle(this.article);
+        this.$store.commit('setArticle', this.article);
     }
 };

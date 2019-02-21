@@ -2,7 +2,7 @@
     <div class="pagebuilder-column"  :class="column.column_size">
         <div class="no-element-wrapper" v-if='column.element_type_id === 0' @click="toolTipActive = !toolTipActive">
             <div class="pb-tooltip" v-show="toolTipActive">
-                <span v-for="element in getElementTypes" @click="addElement(element.id)">
+                <span v-for="element in $store.getters.elementTypes" @click="addElement(element.id)">
                     {{element.name}} |
                 </span>
             </div>

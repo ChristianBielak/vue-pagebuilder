@@ -21,9 +21,9 @@
             <span class="select-grid-icon"  @click.prevent="isSettingsOpen = !isSettingsOpen">
                 <settings-icon></settings-icon>
             </span>
-            <div class="pb-tooltip" v-show="isSettingsOpen">
+            <div class="pb-tooltip text-center" v-show="isSettingsOpen">
                 <span class="text" @click="deleteRow()">
-                    <i class="glyphicon glyphicon-trash"></i>
+                    <unicon name="trash" fill="white"></unicon>
                 </span>
             </div>
         </div>

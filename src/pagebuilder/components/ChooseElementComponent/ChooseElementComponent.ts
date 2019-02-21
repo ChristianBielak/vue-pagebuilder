@@ -15,9 +15,6 @@ export default class ChooseElementComponent extends Vue {
     @Prop()
     id: string;
 
-    beforeMount() {
-    }
-
     mounted() {
         //@ts-ignore
         let wheel = new wheelnav("divWheel");

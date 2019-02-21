@@ -3,7 +3,6 @@ import Vue from "vue";
 //@ts-ignore
 
 import {Component, Prop, Watch} from "vue-property-decorator";
-import {Getter, Mutation} from "vuex-class";
 
 //@ts-ignore
 import VueQuillEditor from 'vue-quill-editor';
@@ -18,12 +17,10 @@ export default class VText extends Vue {
     @Prop()
     oldTranslations: Array<Translation>;
 
-    @Getter('getLanguages') getLanguages: any;
-
     translations: Array<Translation> = [];
     options: object = {
         theme: 'bubble',
-        placeholder: 'Text (' + this.$store.getters.getCurrentLang.locale + ')',
+        placeholder: 'Text (' + this.currentLang.locale + ')',
         modules: {
             toolbar: [
                 ["bold", "italic", "underline"],
@@ -35,6 +32,14 @@ export default class VText extends Vue {
 
     beforeMount() {
         this.translations = this.oldTranslations;
+    };
+
+    get languages(){
+        return this.$store.getters.languages;
+    }
+
+    get currentLang(){
+        return this.$store.getters.currentLang;
     }
 
 

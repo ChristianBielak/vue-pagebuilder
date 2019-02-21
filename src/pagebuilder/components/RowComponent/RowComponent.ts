@@ -2,12 +2,9 @@ import Vue from "vue";
 
 
 import {Component, Prop, Watch, Emit} from "vue-property-decorator";
-import {Getter} from "vuex-class";
 import ColumnComponent from '../ColumnComponent/ColumnComponent';
 import {Row} from "../../models/Row";
 import RowSpacerComponent from "../RowSpacerComponent/RowSpacerComponent";
-import {indexOf} from 'lodash';
-import {Article} from "@/pagebuilder/models/Article";
 
 @Component({
     components: {
@@ -21,9 +18,6 @@ export default class RowComponent extends Vue {
     row: Row;
     @Prop()
     arrayIndex: number;
-
-    @Getter('getArticle') getArticle: Article;
-    @Getter('getLanguages') getLanguages: any;
 
     columnLimit: number = 1;
 

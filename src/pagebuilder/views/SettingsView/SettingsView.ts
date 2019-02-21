@@ -6,7 +6,6 @@ import vue2Dropzone from 'vue2-dropzone';
 import 'vue2-dropzone/dist/vue2Dropzone.min.css';
 //@ts-ignore
 import DatePicker from 'vue-bootstrap-datetimepicker';
-import {Getter} from "vuex-class";
 import {Article} from "@/pagebuilder/models/Article";
 
 @Component({
@@ -16,8 +15,6 @@ import {Article} from "@/pagebuilder/models/Article";
     }
 })
 export default class SettingsView extends Vue {
-
-    @Getter('getArticle') getArticle: Article;
 
     dropzoneOptions: object = {
         url: '/pagebuilder/upload-photo',
@@ -41,7 +38,7 @@ export default class SettingsView extends Vue {
     };
 
     get article(): Article {
-        return this.getArticle;
+        return this.$store.getters.article;
     }
 
     mounted() {

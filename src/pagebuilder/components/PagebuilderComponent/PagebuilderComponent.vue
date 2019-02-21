@@ -3,7 +3,7 @@
         <div class="pagebuilder-component">
             <div class="row justify-content-center">
 
-                <div class="col-3">
+                <div class="col-2">
                     <div class="pb-side-nav-wrapper">
                         <!-- <div class="panel pb-side-nav">
                          <div class="panel-body">
@@ -35,13 +35,13 @@
                                 <ul>
                                     <li>
                                         <p>
-                                            Sprachen ({{getCurrentLanguage.locale}}) <span class="lang-arrow">
+                                            Sprachen ({{currentLanguage.locale}}) <span class="lang-arrow">
                                             <arrow></arrow>
                                         </span>
                                         </p>
                                         <ul class="is-dropright">
                                             <li v-for="lang in languages">
-                                                <p :class="{active: getCurrentLanguage.locale === lang.locale}"
+                                                <p :class="{active: currentLanguage.locale === lang.locale}"
                                                    @click.prevent="setCurrentLang(lang)">{{lang.name}}</p>
                                             </li>
                                         </ul>

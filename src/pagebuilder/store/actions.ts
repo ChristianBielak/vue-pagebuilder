@@ -27,7 +27,7 @@ export default {
 
     /* Pagebuilder stuff */
 
-    createElement(store: any) {
+    createElement: (store: any) => {
         let article = store.getters.getArticle;
 
         axios.post(routePrefix + 'articles', article, headers).then(response => {
@@ -35,7 +35,7 @@ export default {
 
     },
 
-    updateElement(store: any) {
+    updateElement: (store: any) => {
         let article = store.getters.getArticle;
 
         axios.put(routePrefix + 'articles/' + article.id, article, headers).then(response => {
@@ -45,7 +45,7 @@ export default {
 
     },
 
-    deleteRow(store: any, row: Row) {
+    deleteRow: (store: any, row: Row) => {
         axios.delete(routePrefix + 'delete-row', {params: {id: row.id}})
             .then((response) => {
                 store.state.article.rows.splice(row.sorting, 1);
@@ -54,7 +54,7 @@ export default {
         });
     },
 
-    fetchElementTypes(store: any) {
+    fetchElementTypes: (store: any) => {
         let elementTypes = axios.get('https://pagebuilder.ultrabold.de/api/getElements')
             .then((response: any) => {
                 store.state.element_types = response.data;
@@ -63,7 +63,7 @@ export default {
             })
     },
 
-    fetchArticles(store: any) {
+    fetchArticles: (store: any) => {
         let articles: Array<Article> = [];
         axios.get('https://pagebuilder.ultrabold.de/api/getArticles')
             .then((response: any) => {
@@ -73,7 +73,7 @@ export default {
         })
     },
 
-    fetchLanguages(store: any) {
+    fetchLanguages: (store: any) => {
         axios.get('https://pagebuilder.ultrabold.de/api/getLanguages')
             .then((response: any) => {
                 store.state.languages = response.data;

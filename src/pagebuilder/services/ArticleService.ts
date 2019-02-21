@@ -5,12 +5,12 @@ import store from "@/pagebuilder/store/store";
 import {Article} from "@/pagebuilder/models/Article";
 
 
-const languages = store.getters.getLanguages;
+const languages = store.getters.languages;
 
 export abstract class ArticleService {
 
     public static createNew(): Article {
-        const languages = store.getters.getLanguages;
+        const languages = store.getters.languages;
         let article = new Article();
 
         languages.forEach((lang: any) => {
@@ -21,7 +21,7 @@ export abstract class ArticleService {
     }
 
     public static createFromExisting(oldArticle: any): Article {
-        const languages = store.getters.getLanguages;
+        const languages = store.getters.languages;
         let article = new Article();
         try {
 

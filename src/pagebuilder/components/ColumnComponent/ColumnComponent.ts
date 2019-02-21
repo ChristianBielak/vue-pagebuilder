@@ -2,7 +2,6 @@ import Vue from "vue";
 
 //@ts-ignore
 import {Component, Prop, Watch, Emit} from "vue-property-decorator";
-import {Getter, Mutation} from "vuex-class";
 import axios from "axios";
 import {Column} from "../../models/Column";
 import {forEach} from 'lodash';
@@ -30,9 +29,6 @@ export default class ColumnComponent extends Vue {
 
     @Prop()
     column: Column;
-    @Getter('getElementTypeById') getElementTypeById: any;
-    @Getter('getLanguages') getLanguages: any;
-    @Getter('getElementTypes') getElementTypes: any;
 
     component: string = '';
     columnSize: string = '';
@@ -54,7 +50,7 @@ export default class ColumnComponent extends Vue {
         this.column.element_type_id = id;
 
         if (this.column.element_type_id !== 0) {
-            let element = this.getElementTypeById(this.column.element_type_id);
+            let element = this.$store.getters.elementTypeById(this.column.element_type_id);
 
             this.component = element.component;
             Vue.component(

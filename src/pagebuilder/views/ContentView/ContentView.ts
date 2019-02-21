@@ -10,23 +10,20 @@ import {indexOf} from 'lodash';
 import {Article} from "@/pagebuilder/models/Article";
 
 @Component({
-    components:{
+    components: {
         RowComponent,
         RowSpacerComponent,
         Draggable
     }
 })
-export default class ContentView extends Vue{
+export default class ContentView extends Vue {
 
-    @Getter('getArticle') getArticle: Article;
-    @Mutation('setArticle') setArticle: any;
-
-    get article(): Article{
-        return this.getArticle;
+    get article(): Article {
+        return this.$store.getters.article;
     }
 
     @Emit('onImageUpload')
-    onImageUpload(){
-        this.setArticle(this.article);
+    onImageUpload() {
+        this.$store.commit('setArticle', this.article);
     }
 }

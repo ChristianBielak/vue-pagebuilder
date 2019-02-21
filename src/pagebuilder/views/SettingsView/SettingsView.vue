@@ -7,7 +7,9 @@
                     <div class="col-sm-12 col-md-6">
                         <div class="form-group">
                             <label for="photo">Header-Foto</label>
-                            <vue-dropzone ref="singleDropzone" id="dropzone" :options="dropzoneOptions" :destroyDropzone="false"  @vdropzone-success="onSuccess" @vdropzone-removed-file="onFileRemove"></vue-dropzone>
+                            <vue-dropzone ref="singleDropzone" id="dropzone" :options="dropzoneOptions"
+                                          :destroyDropzone="false" @vdropzone-success="onSuccess"
+                                          @vdropzone-removed-file="onFileRemove"></vue-dropzone>
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-6">
@@ -33,7 +35,8 @@
                                                 <label :for="'title'+l.id" class="control-label">Titel
                                                     ({{l.locale}})</label>
                                                 <input :id="'title'+l.id" type="text" class="form-control"
-                                                       :name="'title'+l.id"  v-model="article.translations[l.id].content.title">
+                                                       :name="'title'+l.id"
+                                                       v-model="article.translations[l.id].content.title">
                                             </div>
                                         </div>
                                         <div class="col-md-12">
@@ -41,7 +44,8 @@
                                                 <label :for="'teaser'+l.id" class="control-label">Teaser-Text
                                                     ({{l.locale}})</label>
                                                 <textarea class="form-control" :name="'teaser'+l.id"
-                                                          :id="'teaser'+l.id" v-model="article.translations[l.id].content.teaser"></textarea>
+                                                          :id="'teaser'+l.id"
+                                                          v-model="article.translations[l.id].content.teaser"></textarea>
                                             </div>
                                         </div>
                                     </div>

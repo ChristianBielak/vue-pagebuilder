@@ -10,7 +10,7 @@ export abstract class ColumnService {
 
 
     public static createNew(columnSize: string): Column {
-        const languages = store.getters.getLanguages;
+        const languages = store.getters.languages;
         let column = new Column();
 
         column.column_size = columnSize;
@@ -23,7 +23,7 @@ export abstract class ColumnService {
     }
 
     public static createFromExisting(oldColumn: any): Column {
-        const languages = store.getters.getLanguages;
+        const languages = store.getters.languages;
         let column = new Column();
         try {
 
