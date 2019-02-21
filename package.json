@@ -1,6 +1,6 @@
 {
   "name": "@chrisbielak/vue-pagebuilder",
-  "version": "0.0.41",
+  "version": "0.0.42",
   "repository": {
     "type": "git",
     "url": "https://github.com/ChristianBielak/vue-pagebuilder"
@@ -17,8 +17,7 @@
     "url": "https://github.com/ChristianBielak/vue-pagebuilder/issues"
   },
   "scripts": {
-    "postinstall": "node scripts/install.js",
-    "postuninstall": "scripts/uninstall.js"
+    "postinstall": "node scripts/install.js"
   },
   "dependencies": {
     "@types/axios": "^0.14.0",

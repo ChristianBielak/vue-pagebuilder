@@ -16,14 +16,6 @@ import Grid84 from '../../svgs/Grid84Icon.vue';
 import Grid48 from '../../svgs/Grid48Icon.vue';
 import {Article} from "@/pagebuilder/models/Article";
 import {RowService} from "@/pagebuilder/services/RowService";
-//@ts-ignore
-import Unicon from 'vue-unicons';
-//@ts-ignore
-import {uniTrash} from 'vue-unicons/src/icons'
-
-Unicon.add(uniTrash);
-Vue.use(Unicon);
-
 
 @Component({
     components:{

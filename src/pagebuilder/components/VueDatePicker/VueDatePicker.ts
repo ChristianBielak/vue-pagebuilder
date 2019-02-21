@@ -3,7 +3,7 @@ import Vue from "vue";
 
 import {Component, Prop} from "vue-property-decorator";
 
-import 'bootstrap/dist/css/bootstrap.css';
+import 'pc-bootstrap4-datetimepicker/build/css/bootstrap-datetimepicker.css';
 //@ts-ignore
 import datePicker from 'vue-bootstrap-datetimepicker';
 

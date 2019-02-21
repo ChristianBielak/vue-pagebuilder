@@ -16,7 +16,6 @@
                 <span @click.prevent="createRow(['pb-large-8', 'pb-large-4'])"><grid84></grid84></span>
             </div>
         </div>
-
         <div class="button-tooltip-wrapper right" v-if="row">
             <span class="select-grid-icon"  @click.prevent="isSettingsOpen = !isSettingsOpen">
                 <settings-icon></settings-icon>
