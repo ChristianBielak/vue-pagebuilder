@@ -1,6 +1,13 @@
+<p align="center">
+<img align:center width="650" src="./vuejs-pagebuilder.jpg">
+</p>
+
+<br>
+<br>
+
 # Vue Pagebuilder
 
-#### Notes
+### Notes
 
 This package is still in development and is NOT yet intended for production use.
 <br>
@@ -17,7 +24,7 @@ yarn add @chrisbielak/vue-pagebuilder
 ~~~
 
 
-##### Set up TypeScript
+#### Set up TypeScript
 The Pagebuilder was written in TypeScript, which will be installed automatically
 with all required dependencies.
 
@@ -128,7 +135,7 @@ I use the default `tsconfig.json` which is created by the Vue cli.
 
 
 
-##### How to use the Pagebuilder
+#### How to use the Pagebuilder
 
 First you have to register the component and register the Vuex store which has a default set up.
 
