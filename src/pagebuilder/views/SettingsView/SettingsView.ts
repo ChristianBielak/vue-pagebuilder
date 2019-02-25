@@ -25,10 +25,10 @@ export default class SettingsView extends Vue {
         addRemoveLinks: true,
         dictDefaultMessage: "<i class='glyphicon glyphicon-cloud-upload dropzone-icon'></i>",
         paramName: 'photo',
-       /* headers: {
+        headers: {
             //@ts-ignore
             'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-        }*/
+        }
     };
 
     config: object = {
@@ -41,11 +41,11 @@ export default class SettingsView extends Vue {
         return this.$store.getters.article;
     }
 
-    get languages(){
+    get languages() {
         return this.$store.getters.languages;
     }
 
-    get currentLang(){
+    get currentLang() {
         return this.$store.getters.currentLang;
     }
 

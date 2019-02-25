@@ -2,9 +2,6 @@ import axios from "axios";
 import {Row} from "../models/Row";
 import {Article} from "../models/Article";
 
-const routePrefix: string = 'https://pagebuilder.ultrabold.de/admin/pagebuilder/';
-
-
 const token: any = document.querySelector('meta[name="csrf-token"]');
 
 let headers = {};
@@ -28,16 +25,20 @@ export default {
 
     createElement: (store: any) => {
         let article = store.getters.article;
+        let route = store.getters.route;
 
-        axios.post(routePrefix + 'articles', article, headers).then(response => {
+        console.log(article);
+        axios.post(route, article, headers).then(response => {
         })
 
     },
 
     updateElement: (store: any) => {
         let article = store.getters.article;
+        let route = store.getters.route;
 
-        axios.put(routePrefix + 'articles/' + article.id, article, headers).then(response => {
+
+        axios.put(route + article.id, article, headers).then(response => {
             //window.location.href = response.data.return_url;
         }).catch(error => {
         });
@@ -45,13 +46,17 @@ export default {
     },
 
     deleteRow: (store: any, row: Row) => {
-        axios.delete(routePrefix + 'delete-row', {params: {id: row.id}})
+        let route = store.getters.route;
+
+        axios.delete('/pagebuilder/delete-row', {params: {id: row.id}})
             .then((response) => {
                 store.state.article.rows.splice(row.sorting, 1);
             }).catch((error) => {
             console.log(error)
         });
     },
+
+    //API Actions
 
     fetchElementTypes: (store: any) => {
         let elementTypes = axios.get('https://pagebuilder.ultrabold.de/api/getElements')

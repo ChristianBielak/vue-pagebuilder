@@ -34,4 +34,7 @@ export default {
     articles: (state: any) => {
         return state.articles;
     },
+    route: (state: any) => {
+        return state.route;
+    }
 }

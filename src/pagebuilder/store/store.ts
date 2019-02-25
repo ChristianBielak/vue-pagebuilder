@@ -18,6 +18,7 @@ export default new Vuex.Store({
         element_types: [],
         languages: [],
         currentLang: {},
+        route: ''
     },
     getters,
     mutations,

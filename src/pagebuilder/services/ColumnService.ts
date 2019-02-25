@@ -32,7 +32,7 @@ export abstract class ColumnService {
             column.sorting = oldColumn.sorting;
             column.row_id = oldColumn.row_id;
             column.element_type_id = oldColumn.element_type_id;
-            column.column_size = oldColumn.size;
+            column.column_size = oldColumn.column_size;
             column.custom_class = oldColumn.custom_class;
 
             if (oldColumn.translations && oldColumn.translations.length) {

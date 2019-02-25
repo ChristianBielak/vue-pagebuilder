@@ -16,4 +16,7 @@ export default {
     setArticle: (state: any, article: Article) => {
         state.article = article;
     },
+    setRoute: (state: any, route: string) => {
+        state.route = route;
+    }
 }

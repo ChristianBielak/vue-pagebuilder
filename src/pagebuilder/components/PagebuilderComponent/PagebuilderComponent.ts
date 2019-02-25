@@ -21,6 +21,13 @@ import {Article} from "@/pagebuilder/models/Article";
 import SettingsView from "@/pagebuilder/views/SettingsView/SettingsView";
 import VueDatePicker from "@/pagebuilder/components/VueDatePicker/VueDatePicker";
 import VueEditor from "@/pagebuilder/components/VueEditor/VueEditor";
+//@ts-ignore
+import Unicon from 'vue-unicons'
+//@ts-ignore
+import { uniTrash, uniCloudUpload } from 'vue-unicons/src/icons'
+
+Unicon.add([uniTrash, uniCloudUpload]);
+Vue.use(Unicon);
 
 
 Vue.use(Sticky);
@@ -88,6 +95,13 @@ export default class PagebuilderComponent extends Vue {
         }
     )
     languages: Array<any>;
+
+    @Prop({
+        default: function () {
+            return '/admin/pagebuilder/articles/'
+        }
+    })
+    route: string;
     @Prop()
     storagePath: string;
     @Prop({default: 'dark-theme'})
@@ -104,7 +118,7 @@ export default class PagebuilderComponent extends Vue {
     };
 
     beforeMount() {
-
+        this.$store.commit('setRoute', this.route);
         if (localStorage.pagebuilderTheme) {
             this.theme = localStorage.pagebuilderTheme;
         }
@@ -161,7 +175,7 @@ export default class PagebuilderComponent extends Vue {
     setMobile() {
         this.elements.contentWrapper.style.maxWidth = '375px';
 
-        forEach(this.elements.columns, (c: HTMLElement) => {
+       /* forEach(this.elements.columns, (c: HTMLElement) => {
 
             forEach(c.classList, (size: string) => {
                 if (size.includes('col-')) {
@@ -169,7 +183,7 @@ export default class PagebuilderComponent extends Vue {
                     c.classList.add('col-xs-12')
                 }
             })
-        })
+        })*/
     }
 
     get currentLanguage() {

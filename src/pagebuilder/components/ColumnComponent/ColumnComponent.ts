@@ -31,7 +31,6 @@ export default class ColumnComponent extends Vue {
     column: Column;
 
     component: string = '';
-    columnSize: string = '';
     toolTipActive: boolean = false;
 
 
@@ -40,8 +39,9 @@ export default class ColumnComponent extends Vue {
 
     mounted() {
 
+        console.log(this.column);
         this.addElement();
-        this.createColumnLayout();
+        //this.createColumnLayout();
 
 
     }
@@ -67,7 +67,7 @@ export default class ColumnComponent extends Vue {
         this.addElement();
     }
 
-    createColumnLayout() {
+    /*createColumnLayout() {
         let classes = pbConfig[pbConfig.framework.current];
 
         if (this.column.column_size) {
@@ -78,6 +78,10 @@ export default class ColumnComponent extends Vue {
             this.column.column_size = 'pb-large-12';
             this.createColumnLayout();
         }
+    }*/
+
+    get columnSize(){
+        return pbConfig.bootstrap[this.column.column_size];
     }
 
     @Emit('onImageUpload')
