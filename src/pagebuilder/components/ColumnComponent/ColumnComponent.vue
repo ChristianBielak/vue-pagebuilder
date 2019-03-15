@@ -2,11 +2,11 @@
     <div class="pagebuilder-column"  :class="columnSize">
         <div class="no-element-wrapper" v-if='column.element_type_id === 0' @click="toolTipActive = !toolTipActive">
             <div class="pb-tooltip" v-show="toolTipActive">
-                <span v-for="element in $store.getters.elementTypes" @click="addElement(element.id)">
-                    {{element.name}} |
-                </span>
+
+                <choose-element-component @addElement="elementAdded"></choose-element-component>
+
             </div>
-            <plus></plus>
+            <plus class="add-element"></plus>
         </div>
         <div v-else>
             <component :is="component" :old-translations="column.translations" @onImageUpload="onImageUpload"></component>

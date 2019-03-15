@@ -17,12 +17,16 @@ import HeadlineTextElementIcon from '../../svgs/ElementIcons/HeadlineTextElement
 //@ts-ignore
 import pbConfig from '../../config/config.json';
 
+import ChooseElementComponent from "@/pagebuilder/components/ChooseElementComponent/ChooseElementComponent";
+
+
 @Component({
     components: {
         Plus,
         ImageElementIcon,
         TextElementIcon,
         HeadlineTextElementIcon,
+        ChooseElementComponent
     }
 })
 export default class ColumnComponent extends Vue {
@@ -32,6 +36,7 @@ export default class ColumnComponent extends Vue {
 
     component: string = '';
     toolTipActive: boolean = false;
+    donutSlices: Array<any> = [];
 
 
     beforeMount() {
@@ -39,10 +44,8 @@ export default class ColumnComponent extends Vue {
 
     mounted() {
 
-        console.log(this.column);
         this.addElement();
-        //this.createColumnLayout();
-
+        this.createDonutSlices();
 
     }
 
@@ -67,6 +70,27 @@ export default class ColumnComponent extends Vue {
         this.addElement();
     }
 
+    createDonutSlices() {
+        for (let i = 0; i <= this.elements.length - 1; i++) {
+            let element: any = this.elements[i];
+            let donutSlice: object = {
+                label: element.name,
+                value: (100/this.elements.length),
+                color: '#ff00ff',
+                element: element
+            };
+            this.donutSlices.push(donutSlice);
+        }
+    }
+
+    elementAdded($id: any){
+        this.addElement($id);
+    }
+
+    get elements() {
+        return this.$store.getters.elementTypes;
+    }
+
     /*createColumnLayout() {
         let classes = pbConfig[pbConfig.framework.current];
 
@@ -80,9 +104,10 @@ export default class ColumnComponent extends Vue {
         }
     }*/
 
-    get columnSize(){
+    get columnSize() {
         return pbConfig.bootstrap[this.column.column_size];
     }
+
 
     @Emit('onImageUpload')
     onImageUpload() {
