@@ -1,0 +1,20 @@
+// Import settings
+@import "./settings";
+@import "../../../node_modules/foundation-sites/scss/foundation";
+@import "./custom-foundation";
+
+.page-transition-enter-active,
+.page-transition-leave-active {
+  transition-duration: .3s;
+  transition-property: opacity;
+  transition-timing-function: ease;
+}
+
+.page-transitionenter,
+.page-transition-leave-active {
+  opacity: 0;
+}
+
+.content{
+  padding: 120px 0;
+}

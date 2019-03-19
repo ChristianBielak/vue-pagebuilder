@@ -1,0 +1,79 @@
+@import '../../assets/scss/settings';
+
+.navigation {
+  padding: 25px;
+  background-color: $dark-blue;
+  position: fixed;
+  width: 100%;
+
+  .top-bar {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+    height: 100%;
+
+    .top-logo {
+
+      @include breakpoint(large) {
+        display: flex;
+        align-items: stretch;
+      }
+    }
+
+    .top-bar-menu {
+
+      .router-link-exact-active {
+        color: #fff;
+      }
+
+      span {
+        color: $pink;
+      }
+
+      @include breakpoint(large) {
+        display: flex;
+        align-items: stretch;
+        flex-grow: 1;
+        flex-shrink: 0;
+      }
+
+      .menu-left {
+
+        @include breakpoint(large) {
+          display: flex;
+          align-items: stretch;
+          justify-content: flex-start;
+          margin-right: auto;
+          padding-left: 50px;
+        }
+
+        a {
+          padding: 0 15px;
+        }
+      }
+
+      .menu-right {
+
+        .language-switch {
+          color: $pink;
+
+          span{
+            cursor: pointer;
+          }
+
+        }
+
+        @include breakpoint(large) {
+          display: flex;
+          align-items: stretch;
+          justify-content: flex-end;
+          margin-left: auto;
+        }
+
+        a {
+          padding: 0 15px;
+        }
+      }
+    }
+  }
+}
