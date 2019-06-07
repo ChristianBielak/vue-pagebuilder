@@ -8,7 +8,9 @@ import Articles from "@/views/articles/Articles";
 Vue.use(Router);
 import {i18n} from "@/i18n/i18n";
 
+
 export default new Router({
+    mode: 'history',
     routes: [
         {
             path: '/',
