@@ -45,6 +45,7 @@ export abstract class RowService {
         if (row.id && row.id !== 0) {
             store.dispatch('deleteRow', row);
         } else {
+            //@ts-ignore
             store.state.article.rows.splice(row.sorting, 1);
         }
     }
