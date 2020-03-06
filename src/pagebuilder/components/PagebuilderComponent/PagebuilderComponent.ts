@@ -98,7 +98,7 @@ export default class PagebuilderComponent extends Vue {
 
     @Prop({
         default: function () {
-            return '/admin/pagebuilder/articles/'
+            return '/admin/pagebuilder/articles'
         }
     })
     route: string;
