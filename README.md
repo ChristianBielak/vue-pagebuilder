@@ -7,6 +7,12 @@
 
 # Vue Pagebuilder
 
+### Demo 
+
+<a href="http://pagebuilder.ultrabold.de/admin/pagebuilder/pages">Dashboard</a>
+
+Frontend Demo coming soon...
+
 ### Notes
 
 This package is still in development and is NOT yet intended for production use.
