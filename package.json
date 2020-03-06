@@ -1,6 +1,6 @@
 {
   "name": "@chrisbielak/vue-pagebuilder",
-  "version": "0.0.51",
+  "version": "0.0.53",
   "repository": {
     "type": "git",
     "url": "https://github.com/ChristianBielak/vue-pagebuilder"
@@ -27,6 +27,7 @@
     "lodash": "^4.17.11",
     "raphael": "^2.2.7",
     "typescript": "^3.0.0",
+    "ts-loader": "^6.2.1",
     "vue": "^2.5.22",
     "vue-bootstrap-datetimepicker": "^5.0.1",
     "vue-class-component": "^6.0.0",
@@ -37,14 +38,13 @@
     "vue-unicons": "^1.2.0",
     "vue2-dropzone": "^3.5.2",
     "vuedraggable": "^2.17.0",
-    "vuex": "^3.0.1"
+    "vuex": "^3.0.1",
+    "vuex-class": "^0.3.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.4.0",
     "@vue/cli-plugin-typescript": "^3.4.0",
     "@vue/cli-service": "^3.4.0",
-    "ts-loader": "^6.2.1",
-    "vue-template-compiler": "^2.5.21",
-    "vuex-class": "^0.3.2"
+    "vue-template-compiler": "^2.5.21"
   }
 }
