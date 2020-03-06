@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import {Component} from "vue-property-decorator";
+import {Component, Prop} from "vue-property-decorator";
 
 //@ts-ignore
 import vue2Dropzone from 'vue2-dropzone';
@@ -15,6 +15,11 @@ import {Article} from "@/pagebuilder/models/Article";
     }
 })
 export default class SettingsView extends Vue {
+
+    @Prop({
+        default: () => []
+    })
+    categories: Array<any>
 
     dropzoneOptions: object = {
         url: '/pagebuilder/upload-photo',

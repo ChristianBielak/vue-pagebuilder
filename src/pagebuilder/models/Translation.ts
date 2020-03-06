@@ -1,8 +1,8 @@
 import {BaseModel} from "./BaseModel";
 
-export class Translation extends BaseModel{
+export class Translation extends BaseModel {
 
-    constructor(lang: number){
+    constructor(lang: number) {
         super();
         this.language_id = lang;
     }
@@ -11,5 +11,4 @@ export class Translation extends BaseModel{
     language_id: number = 0;
     translatable_id: number;
     translatable_type: string = '';
-
 }

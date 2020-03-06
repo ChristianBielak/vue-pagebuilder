@@ -31,6 +31,8 @@ export abstract class ArticleService {
             article.published_on = oldArticle.published_on;
             article.is_published = oldArticle.is_published;
 
+            if(oldArticle.category)  article.category = oldArticle.category
+
             if (oldArticle.translations && oldArticle.translations.length) {
                 languages.forEach((lang: any) => {
                     article.translations[lang.id] = new Translation(lang.id);

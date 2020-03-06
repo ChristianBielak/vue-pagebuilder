@@ -26,6 +26,7 @@ export abstract class RowService {
             row.sorting = oldRow.sorting;
             row.expanded = oldRow.expanded;
             row.custom_class = oldRow.custom_row;
+            row.alignment = oldRow.alignment
 
             if (oldRow.columns && oldRow.columns.length) {
 

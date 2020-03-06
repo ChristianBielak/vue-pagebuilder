@@ -1,6 +1,19 @@
-.choose-elememt-component {
-  svg {
-    height: 300px;
-    width: 300px;
-  }
+.choose-element-component {
+    .element-list {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+        list-style: none;
+        flex-wrap: wrap;
+        background-color: #5e7e9e;
+
+        li {
+            padding: 0.3rem;
+
+            p, i {
+                margin-bottom: 0;
+                color: #fff;
+            }
+        }
+    }
 }

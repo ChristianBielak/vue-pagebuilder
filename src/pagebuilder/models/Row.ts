@@ -14,5 +14,5 @@ export class Row extends BaseModel{
     expanded: boolean = false;
     custom_class: string = '';
     columns: Column[] = [];
-
+    alignment: string = 'left'
 }

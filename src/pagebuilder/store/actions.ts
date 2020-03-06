@@ -29,6 +29,7 @@ export default {
 
         console.log(article);
         axios.post(route, article, headers).then(response => {
+            window.location.href = response.data.return_url;
         })
 
     },
@@ -38,8 +39,8 @@ export default {
         let route = store.getters.route;
 
 
-        axios.put(route + article.id, article, headers).then(response => {
-            //window.location.href = response.data.return_url;
+        axios.put(route, article, headers).then(response => {
+            window.location.href = response.data.return_url;
         }).catch(error => {
         });
 

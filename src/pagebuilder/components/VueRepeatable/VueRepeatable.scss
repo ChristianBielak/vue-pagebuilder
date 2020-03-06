@@ -1,0 +1,32 @@
+.component-vue-repeatable {
+  .form-group {
+    margin-bottom: 0;
+  }
+
+
+
+  .toggle {
+
+    &:after {
+      display: inline-block;
+      margin-left: 3px;
+      content: '˄';
+      font-size: 1.5rem;
+      line-height: 1.2;
+      background: linear-gradient(to right, #ff436c 0%, #fc6667 50%, #ff436c 100%);
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      text-align: center;
+      vertical-align: top;
+      color: #fff;
+    }
+
+    &.toggled {
+      &:after {
+        content: '˅';
+      }
+    }
+  }
+
+}

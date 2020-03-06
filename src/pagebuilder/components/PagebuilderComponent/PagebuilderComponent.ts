@@ -21,6 +21,7 @@ import {Article} from "@/pagebuilder/models/Article";
 import SettingsView from "@/pagebuilder/views/SettingsView/SettingsView";
 import VueDatePicker from "@/pagebuilder/components/VueDatePicker/VueDatePicker";
 import VueEditor from "@/pagebuilder/components/VueEditor/VueEditor";
+import VueRepeatable from "@/pagebuilder/components/VueRepeatable/VueRepeatable";
 //@ts-ignore
 import Unicon from 'vue-unicons'
 //@ts-ignore
@@ -28,7 +29,6 @@ import { uniTrash, uniCloudUpload } from 'vue-unicons/src/icons'
 
 Unicon.add([uniTrash, uniCloudUpload]);
 Vue.use(Unicon);
-
 
 Vue.use(Sticky);
 
@@ -44,8 +44,8 @@ Vue.use(Sticky);
         TextElementIcon,
         HeadlineTextElementIcon,
         VueEditor,
-        VueDatePicker
-
+        VueDatePicker,
+        VueRepeatable
     },
 })
 export default class PagebuilderComponent extends Vue {
@@ -95,6 +95,11 @@ export default class PagebuilderComponent extends Vue {
         }
     )
     languages: Array<any>;
+
+    @Prop({
+        default: () => []
+    })
+    categories: Array<any>
 
     @Prop({
         default: function () {

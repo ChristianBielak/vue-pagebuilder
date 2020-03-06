@@ -84,13 +84,21 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <content-view :article="article" v-if="currentView === 'Content'"></content-view>
-                            <settings-view v-if="currentView === 'Settings'">
-
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label class="control-label">Custom Field</label>
-                                            <input class="form-control" type="text" v-model="article.customField">
+                            <settings-view v-if="currentView === 'Settings'" :categories="categories">
+                                <div class="tab-content">
+                                    <div v-for="(l, index) in languages" role="tabpanel"
+                                         :id="l.locale"
+                                         :class="[l.locale === currentLanguage.locale ? 'tab-pane active' : 'tab-pane']">
+                                        <input type="hidden" :value="l.id"/>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label :for="'cardIcon'+l.id" class="control-label">Card Icon
+                                                        ({{l.locale}})</label>
+                                                    <input class="form-control" type="text" v-model="article.translations[l.id].content.cardIcon"
+                                                           :id="`cardIcon${l.id}`">
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

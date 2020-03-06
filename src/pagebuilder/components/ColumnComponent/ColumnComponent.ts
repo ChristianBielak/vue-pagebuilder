@@ -56,9 +56,14 @@ export default class ColumnComponent extends Vue {
             let element = this.$store.getters.elementTypeById(this.column.element_type_id);
 
             this.component = element.component;
+
             Vue.component(
                 this.component,
-                () => import( /*webpackChunkName: "pagebuilder-element"*/ "../../elements/" + this.component + '/' + this.component)
+                () => import(
+                    /* webpackPrefetch: true */
+                    /* webpackChunkName: "pb-elements/[request]" */
+                    `@/pagebuilder/elements/${this.component}/${this.component}`
+                    )
             );
 
             this.toolTipActive = false;

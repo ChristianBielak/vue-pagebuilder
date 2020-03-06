@@ -1,4 +1,3 @@
-@import "~bootstrap/scss/bootstrap";
 @import '../../scss/settings.scss';
 
 body {
@@ -124,6 +123,15 @@ button {
     position: relative;
     box-shadow: 0 0 53px -6px rgba(25, 25, 25, 0.75);
 
+    &.btn-sm {
+      font-size: 18px;
+      padding: 5px 10px;
+    }
+
+    &.shadowless {
+      box-shadow: none;
+    }
+
     &:hover, &.active {
       background-position: right center;
     }
@@ -202,6 +210,9 @@ button {
 
       .pb-tooltip{
         right: -35px;
+          bottom: unset;
+          top: 0;
+          transform: translateY(50px);
 
         &:after{
           right: 35px;
