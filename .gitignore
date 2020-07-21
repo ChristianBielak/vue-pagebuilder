@@ -21,3 +21,5 @@ yarn-error.log*
 *.sw*
 /nbproject/private/
 /nbproject
+.github
+.history
