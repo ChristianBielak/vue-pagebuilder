@@ -13,7 +13,6 @@ import 'quill/dist/quill.snow.css' // for snow theme
 
 Vue.use(VueQuillEditor);
 
-
 @Component
 export default class VText extends Vue {
 
