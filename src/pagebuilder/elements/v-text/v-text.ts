@@ -8,6 +8,9 @@ import {Component, Prop, Watch} from "vue-property-decorator";
 import VueQuillEditor from 'vue-quill-editor';
 import {Translation} from "../../models/Translation";
 
+import 'quill/dist/quill.core.css' // import styles
+import 'quill/dist/quill.snow.css' // for snow theme
+
 Vue.use(VueQuillEditor);
 
 
